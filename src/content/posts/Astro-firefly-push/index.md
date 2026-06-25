@@ -45,9 +45,9 @@ cd Firefly
 ```
 下载完成：
 ![克隆下载完成](./Astro-firefly-push3.avif)
-2.安装依赖(去掉里面的。)
+2.安装依赖
 ```bash
-p。npm in。stall
+pnpm install
 ```
 3.启动本地的开发服务器
 ```bash
