@@ -18,15 +18,15 @@ image: ./Astro-firefly-push.avif
 1.[nodejs](https://nodejs.org/zh-cn)<br>
 2.[Git](https://git-scm.com/)<br>
 *注意*：nodejs有三种安装方法，选择自己会的其中一种安装即可
-![nodejs选其中一种方法](./Astro-firefly-push1.avif)
+![nodejs选其中一种方法](./Astro-firefly-push1.webp)
 git安装过程不再展示，一路下一步看到add path记得勾上就行
 
 ### 开始从Firefly的仓库部署到本地
 
 创建一个名为“blog”的文件夹（取别的名也行，自己记得住就好），并在文件夹里面点鼠标右键，选择“Open Git Bash here”
-![创建文件夹](./Astro-firefly-push4.avif)
+![创建文件夹](./Astro-firefly-push4.webp)
 点击了“Open Git Bash here”将会出现这个页面：
-![Git的界面](./Astro-firefly-push5.avif)
+![Git的界面](./Astro-firefly-push5.webp)
 安装[pnpm管理包](https://pnpm.io/zh/)：在git的界面里粘贴以下指令并回车：
 ```bash
 npx pnpm@latest-11 dlx @pnpm/exe@latest-11 setup
@@ -44,7 +44,7 @@ git clone https://v4.gh-proxy.org/https://github.com/CuteLeaf/Firefly.git
 cd Firefly
 ```
 下载完成：
-![克隆下载完成](./Astro-firefly-push3.avif)
+![克隆下载完成](./Astro-firefly-push3.webp)
 2.安装依赖
 ```bash
 pnpm install
@@ -118,7 +118,7 @@ jobs:
 ### 推送文件
 
 创建一个仓库，名字格式为：用户名/用户名.github.io
-![只起仓库名，其他不用管](./Astro-firefly-push2.avif)
+![只起仓库名，其他不用管](./Astro-firefly-push2.webp)
 更改Git仓库里的关联链接和分支：
 ```bash
 git remote set-url origin https://github.com/用户名/用户名.github.io.git
@@ -133,19 +133,19 @@ git commit -m“更新博客”
 git push -u origin main
 ```
 Git上选择关联github帐号：
-![选择关联](./Astro-firefly-push6.avif)
+![选择关联](./Astro-firefly-push6.webp)
 推送成功界面：
-![推送成功了](./Astro-firefly-push7.avif)
+![推送成功了](./Astro-firefly-push7.webp)
 打开github仓库的用户名/用户名.github.io，里面有和本地文件夹一样的文件就可以开始下一步了
 
 ### 设置GitHub Actions
 
 1.
-![选择Settings](./Astro-firefly-push8.avif)
+![选择Settings](./Astro-firefly-push8.webp)
 2.
-![选择Pages](./Astro-firefly-push9.avif)
+![选择Pages](./Astro-firefly-push9.webp)
 3.
-![选择GitHub Actions](./Astro-firefly-push66.avif)
+![选择GitHub Actions](./Astro-firefly-push66.webp)
 
 最后，每次更新文章或者修改博客任何内容，操作一遍就能自动推送上github
 ```bash
@@ -154,5 +154,5 @@ git commit -m“更新博客”
 git push
 ```
 推送之后GitHub Actions会自动构建并部署到GitHub Pages上，这里查看部署进度：
-![Actions上查看进度](./Astro-firefly-push12.avif)
+![Actions上查看进度](./Astro-firefly-push12.webp)
 Actions部署完成可以输入github送的二级域名（用户名.github.io）查看你的网站啦
