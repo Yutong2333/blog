@@ -1,29 +1,15 @@
 # 关于我 / About Me
 
-你好！我是 **夏叶** ，一个在数字世界中默默无闻的一片叶子。
+你好！我是 **小黄** ，欢迎你来到我的博客。
 
-## 🛠️ 关于本站
+## 🛠️ 本站起源
 
-这个网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发。
+喜欢捣鼓互联网上的东西，但都是半桶水，琢磨过易语言、HTML、Java和C#，工作是数控编程（Mastercam和UG），需要做手板的朋友可以联系我哟😊
 
-**Firefly** 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
+最开始是初中高中时期刷到一些教学网娱乐网发现很多的网站模板，学着搭建了第一个ASP的CMS网站，后来也搭建过一些PHP的，都是没坚持多久就关了。
 
-
-**🖥️在线预览： [Firefly - Demo site](https://firefly.cuteleaf.cn/)**
-
-**🏠我的博客： [https://blog.cuteleaf.cn](https://blog.cuteleaf.cn/)**
-
-**📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
-
-**⭐Firefly开源地址：[https://github.com/CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)** 
-
-**⭐Fuwari开源地址：[https://github.com/saicaca/fuwari](https://github.com/saicaca/fuwari)**
-
-::github{repo="CuteLeaf/Firefly"}
-
-::github{repo="saicaca/fuwari"}
+第一次搭建博客是前几年发现有静态博客这种新奇的东西，搭建了第一个基于Hexo框架的博客，因为更新少加上服务器费用太贵就没坚持下去（当时不知道可以用存储桶+CDN），直到现在本站部署在Edgeone上，大大减轻了我运营博客的成本，就有了现在的[黄鼠狼的树洞](/)
 
 ---
 
 *感谢你的来访！希望在这里能找到对你有用的内容！*
-
