@@ -5,7 +5,7 @@ export const announcementConfig: AnnouncementConfig = {
 	title: "公告",
 
 	// 公告内容
-	content: "欢迎来到我的博客！本站托管在EdgeOne，图片采用avif格式加载,网站加载速度快~",
+	content: "欢迎来到我的博客！本站不定期更新一些乱七八糟的内容🤪",
 
 	// 是否允许用户关闭公告
 	closable: false,

@@ -13,7 +13,7 @@ image: ./Astro-firefly-push.avif
 
 好久没玩博客了，本来想接着用Hexo搭建博客，前段时间了解到现在流行[Astro](https://astro.build/)框架搭建博客，就花了些时间琢磨了一下这个框架怎么部署，还看了一些主题，最后决定用[Firefly](https://docs-firefly.cuteleaf.cn/zh/)主题来部署我的新博客，期间踩了不少坑，下面分享我部署成功的步骤。
 
-### 本地安装所需要的工具（Windows系统）
+## 本地安装所需要的工具（Windows系统）
 
 1.[nodejs](https://nodejs.org/zh-cn)<br>
 2.[Git](https://git-scm.com/)<br>
@@ -21,7 +21,7 @@ image: ./Astro-firefly-push.avif
 ![nodejs选其中一种下载方式](./Astro-firefly-push1.avif)
 git安装过程不再展示，一路下一步看到add path记得勾上就行
 
-### 开始从Firefly的仓库部署到本地
+## 开始从Firefly的仓库部署到本地
 
 创建一个名为“blog”的文件夹（取别的名也行，自己记得住就好），并在文件夹里面点鼠标右键，选择“Open Git Bash here”
 ![创建文件夹](./Astro-firefly-push4.avif)
@@ -58,7 +58,7 @@ pnpm dev
 
 如果你还想要部署成像我这样：本地写文章后输入指令让它自动上传部署到服务器，可以参考我以下的方法
 
-### 修改文件
+## 修改文件
 
 因为国内访问github经常会失败，建议下面的操作先下载[Watt Toolkit](https://steampp.net/)（这工具原本叫Steam++），来给github免费加速
 
@@ -115,7 +115,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 ```
-### 推送文件
+## 推送文件
 
 创建一个仓库，名字格式为：用户名/用户名.github.io
 ![只起仓库名，其他不用管](./Astro-firefly-push2.avif)
@@ -138,7 +138,7 @@ Git上选择关联github帐号：
 ![推送成功了](./Astro-firefly-push7.avif)
 打开github仓库的用户名/用户名.github.io，里面有和本地文件夹一样的文件就可以开始下一步了
 
-### 设置GitHub Actions
+## 设置GitHub Actions
 
 1.
 ![选择Settings](./Astro-firefly-push8.avif)
