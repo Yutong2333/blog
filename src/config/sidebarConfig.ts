@@ -286,7 +286,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			specificConfig: {
 				siteInfo: {
 					// 未能识别的构建平台回退显示文本，可自定义
-					unknownBuildPlatform: "Unknown CI",
+					unknownBuildPlatform: "EdgeOne Makers",//原本是Unknown CI
 				},
 			},
 		},
