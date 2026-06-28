@@ -5,7 +5,7 @@ pinned: false
 description: 在云服务器部署Openlist搭建媒体库并在网易爆米花上播放。
 tags: [Openlist,媒体库,云服务器]
 category: 网上那些事
-draft: true
+draft: false
 image: "./Media-Library.avif"
 ---
 
