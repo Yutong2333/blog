@@ -18,7 +18,7 @@ image: "./Media-Library.avif"
 
 ## 部署1Panel和Docker
 
-首先我们需要准备一个云服务器，2H2G的轻量云服务器已经够用了，各大厂商每年都会搞各种活动，这个配置的轻量云通常一年三四十块钱足以。
+首先我们需要准备一个云服务器，2H2G的轻量云服务器已经够用了，各大厂商每年都会搞各种活动，这个配置的轻量云通常一年三四十块钱足矣。
 
 [官方文档](https://doc.oplist.org.cn/)提供了非常多的安装方式，我将通过[1Penal](https://1panel.cn/)来部署，先给服务器选择安装一个系统镜像（CentOS、Ubuntu、Debian都可以，选择比较新的版本防止安装Docker失败），下载一个管理SSH的工具，这里我用的是[宝塔的SSH终端](https://www.bt.cn/new/product_ssh.html)。在SSH终端添加云服务器：
 ![填写云服务器信息](./Media-Library3.avif)
