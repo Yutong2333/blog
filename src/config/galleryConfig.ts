@@ -17,22 +17,22 @@ export const galleryConfig: GalleryConfig = {
 		// 每添加一个数组项就相当于添加了一个相册，记得在 public/gallery/ 目录下创建对应的子目录并放入图片
 		{
 			id: "DuoDuo",
-			name: "我和宝宝",
+			name: "和朵朵的日常",
+			description: "爱情是生活中的诗歌和太阳。",
+			location: "记录生活",
+			date: "2026-05-20",
+			tags: ["吃饭", "日常"],
+		},
+		{
+			id: "weasel-2026",
+			name: "密码相册示例",
 			description:
 				"爱情是生活中的诗歌和太阳。",
-			location: "记录和宝宝的生活",
+			location: "记录生活",
 			date: "2026-05-20",
 			tags: ["加密相册", "生活"],
 			password: "0317",
 			passwordHint: "纪念日",
-		},
-		{
-			id: "weasel-2026",
-			name: "示例",
-			description: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
-			location: "崩坏：星穹铁道",
-			date: "2026-02-01",
-			tags: ["崩坏星穹铁道", "流萤"],
 		},
 	],
 
