@@ -1,6 +1,6 @@
 ---
 title: 云服务器+Openlist+网易爆米花搭建远程家庭影院
-published: 2026-06-25
+published: 2026-06-28
 pinned: false
 description: 在云服务器部署Openlist搭建媒体库并在网易爆米花上播放。
 tags: [Openlist,媒体库,云服务器]
