@@ -1,0 +1,82 @@
+---
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { Icon } from "astro-icon/components";
+import { url } from "@/utils/url-utils";
+import { siteConfig } from "@/config";
+import { momentsConfig } from "@/config/momentsConfig";
+import I18nKey from "@/i18n/i18nKey";
+import { i18n } from "@/i18n/translation";
+
+// 如果未在站点配置中启用，重定向至 404
+if (siteConfig.pages?.moments === false) {
+  return Astro.redirect("/404/");
+}
+
+const title = momentsConfig.title || i18n(I18nKey.momentsTitle) || "Moments";
+const description = momentsConfig.description || i18n(I18nKey.momentsDescription) || "";
+const showHeader = momentsConfig.showHeader !== false;
+---
+
+<MainGridLayout title={title} description={description}>
+  <div class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32">
+    <div class="card-base z-10 px-9 py-6 relative w-full">
+      {
+        showHeader && (
+          <div class="mb-8">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="h-8 w-8 rounded-lg bg-(--primary) flex items-center justify-center text-white dark:text-black/70">
+                <Icon is:inline name="material-symbols:auto-awesome" class="text-[1.5rem]" />
+              </div>
+              <div class="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+                {title}
+              </div>
+            </div>
+            {description && (
+              <p class="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed mb-4">
+                {description}
+              </p>
+            )}
+          </div>
+        )
+      }
+
+      <!-- 瞬间列表 -->
+      <div class="moments-list space-y-6">
+        {momentsConfig.moments.map((moment, index) => (
+          <article class="group relative pl-6 border-l-2 border-(--primary)/20 hover:border-(--primary) transition-colors">
+            <!-- 时间标记点 -->
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-(--primary)/20 group-hover:bg-(--primary) transition-colors ring-2 ring-white dark:ring-neutral-900"></div>
+            
+            <div class="flex flex-col gap-2">
+              <time class="text-xs font-mono text-(--primary) dark:text-(--primary)/80">
+                {moment.date}
+              </time>
+              
+              <!-- 内容 -->
+              <div class="prose prose-sm dark:prose-invert max-w-none" set:html={moment.content} />
+              
+              <!-- 可选图片 -->
+              {moment.image && (
+                <div class="mt-2 rounded-lg overflow-hidden">
+                  <img
+                    src={url(moment.image)}
+                    alt=""
+                    class="w-full max-h-64 object-cover rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</MainGridLayout>
+
+<style is:global>
+  .moments-list .prose p {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+  }
+</style>

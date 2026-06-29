@@ -53,6 +53,14 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 番组计划
 			LinkPresets.Bangumi,
+
+			//说说
+			{
+				name: "说说",
+				url: "/moments/",
+				external: false,
+				icon: "material-symbols:auto-awesome",
+			},
 		],
 	});
 
