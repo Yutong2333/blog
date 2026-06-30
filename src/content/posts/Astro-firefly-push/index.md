@@ -9,7 +9,7 @@ draft: false
 image: ./Astro-firefly-push.avif
 ---
 
-## 前言
+## 💻前言
 
 好久没玩博客了，本来想接着用Hexo搭建博客，前段时间了解到现在流行[Astro](https://astro.build/)框架搭建博客，就花了些时间琢磨了一下这个框架怎么部署，还看了一些主题，最后决定用[Firefly](https://docs-firefly.cuteleaf.cn/zh/)主题来部署我的新博客，期间踩了不少坑，下面分享我部署成功的步骤。
 
