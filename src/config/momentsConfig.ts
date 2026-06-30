@@ -6,7 +6,11 @@ export const momentsConfig: MomentsConfig = {
   showHeader: true,
   moments: [
     {
-      content: "琢磨了一晚上，终于给博客添加了说说功能😘",
+      content: "给说说增加分页功能，每10条说说自动分一页",
+      date: "2026-06-30",
+    },
+    {
+      content: "琢磨了一晚上，终于给博客成功添加了说说功能😘",
       date: "2026-06-29",
     },
     {

@@ -7,7 +7,6 @@ import { momentsConfig } from "@/config/momentsConfig";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 
-// 如果未在站点配置中启用，重定向至 404
 if (siteConfig.pages?.moments === false) {
   return Astro.redirect("/404/");
 }
@@ -15,6 +14,9 @@ if (siteConfig.pages?.moments === false) {
 const title = momentsConfig.title || i18n(I18nKey.momentsTitle) || "Moments";
 const description = momentsConfig.description || i18n(I18nKey.momentsDescription) || "";
 const showHeader = momentsConfig.showHeader !== false;
+const pageSize = momentsConfig.pageSize || 10;
+const totalMoments = momentsConfig.moments;
+const totalPages = Math.ceil(totalMoments.length / pageSize);
 ---
 
 <MainGridLayout title={title} description={description}>
@@ -40,22 +42,22 @@ const showHeader = momentsConfig.showHeader !== false;
         )
       }
 
-      <!-- 瞬间列表 -->
-      <div class="moments-list space-y-6">
-        {momentsConfig.moments.map((moment, index) => (
-          <article class="group relative pl-6 border-l-2 border-(--primary)/20 hover:border-(--primary) transition-colors">
-            <!-- 时间标记点 -->
+      <div id="moments-list" class="moments-list space-y-6">
+        {totalMoments.map((moment, index) => (
+          <article
+            class="moment-item group relative pl-6 border-l-2 border-(--primary)/20 hover:border-(--primary) transition-colors"
+            data-index={index}
+            style={index >= pageSize ? "display: none;" : ""}
+          >
             <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-(--primary)/20 group-hover:bg-(--primary) transition-colors ring-2 ring-white dark:ring-neutral-900"></div>
             
             <div class="flex flex-col gap-2">
-              <time class="text-xs font-mono text-(--primary) dark:text-(--primary)/80">
+              <time class="text-sm font-mono text-(--primary) dark:text-(--primary)/80">
                 {moment.date}
               </time>
               
-              <!-- 内容 -->
-              <div class="prose prose-sm dark:prose-invert max-w-none" set:html={moment.content} />
+              <div class="prose dark:prose-invert max-w-none" set:html={moment.content} />
               
-              <!-- 可选图片 -->
               {moment.image && (
                 <div class="mt-2 rounded-lg overflow-hidden">
                   <img
@@ -70,13 +72,126 @@ const showHeader = momentsConfig.showHeader !== false;
           </article>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <nav
+          id="moment-pagination"
+          class="mx-auto onload-animation mt-8"
+          style="animation-delay: calc(var(--content-delay) + 0ms)"
+        ></nav>
+      )}
     </div>
   </div>
 </MainGridLayout>
+
+<script define:vars={{ pageSize, totalPages, totalItems: totalMoments.length }}>
+  let currentPage = 1;
+
+  const items = document.querySelectorAll('.moment-item');
+  const paginationContainer = document.getElementById('moment-pagination');
+
+  function showPage(page) {
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize;
+    items.forEach((item, index) => {
+      item.style.display = (index >= start && index < end) ? '' : 'none';
+    });
+    updatePaginationButtons(page);
+    currentPage = page;
+  }
+
+  function updatePaginationButtons(activePage) {
+    if (!paginationContainer) return;
+    paginationContainer.innerHTML = '';
+
+    const ul = document.createElement('ul');
+    ul.className = 'pagination-list';
+
+    // 上一页
+    const prevLi = document.createElement('li');
+    prevLi.className = `pagination-item ${activePage === 1 ? 'disabled' : ''}`;
+    prevLi.innerHTML = `<a href="#prev" class="pagination-link" aria-label="上一页">上一页</a>`;
+    prevLi.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activePage > 1) showPage(activePage - 1);
+    });
+    ul.appendChild(prevLi);
+
+    // 页码
+    for (let i = 1; i <= totalPages; i++) {
+      const li = document.createElement('li');
+      li.className = `pagination-item ${i === activePage ? 'active' : ''}`;
+      li.innerHTML = `<a href="#page-${i}" class="pagination-link">${i}</a>`;
+      li.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage(i);
+      });
+      ul.appendChild(li);
+    }
+
+    // 下一页
+    const nextLi = document.createElement('li');
+    nextLi.className = `pagination-item ${activePage === totalPages ? 'disabled' : ''}`;
+    nextLi.innerHTML = `<a href="#next" class="pagination-link" aria-label="下一页">下一页</a>`;
+    nextLi.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (activePage < totalPages) showPage(activePage + 1);
+    });
+    ul.appendChild(nextLi);
+
+    paginationContainer.appendChild(ul);
+  }
+
+  if (totalPages > 1) {
+    showPage(1);
+  }
+</script>
 
 <style is:global>
   .moments-list .prose p {
     margin-top: 0;
     margin-bottom: 0.25rem;
+  }
+
+  .pagination-list {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pagination-item {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .pagination-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    padding: 0 0.5rem;
+    background-color: var(--btn-regular-bg);
+    color: var(--text-color);
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+
+  .pagination-item.active .pagination-link {
+    background-color: var(--primary);
+    color: #fff;
+  }
+
+  .pagination-item.disabled .pagination-link {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .pagination-link:hover {
+    background-color: var(--btn-regular-hover-bg);
   }
 </style>
