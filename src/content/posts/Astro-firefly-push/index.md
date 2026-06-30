@@ -19,7 +19,7 @@ image: ./Astro-firefly-push.avif
 2.[Git](https://git-scm.com/)<br>
 *注意*：nodejs有三种安装方法，选择自己会的其中一种安装即可
 ![nodejs选其中一种下载方式](./Astro-firefly-push1.avif)
-git安装过程不再展示，一路下一步看到add path记得勾上就行
+git的安装过程不再展示，一路下一步看到add path记得勾上就行
 
 ## 开始从Firefly的仓库部署到本地
 
@@ -56,7 +56,7 @@ pnpm dev
 加载完成后将会提示“[http://localhost:4321/](/posts/astro-firefly-push/)”，复制到浏览器能直接打开的话本地部署的工作算是完成了。
 输入“pnpm buid”将会构建静态的可直接访问的html文件，会在Firefly文件夹里生成一个dist文件夹，最简单的是上传到服务器就能访问了.
 
-如果你还想要部署成像我这样：本地写文章后输入指令让它自动上传部署到服务器，可以参考我以下的方法
+如果你还想要部署成像我这样：本地写文章后输入指令让它自动上传部署到托管平台，可以参考我以下的方法
 
 ## 修改文件
 
